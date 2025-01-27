@@ -1,41 +1,22 @@
-def add(num1, num2):
-    return num1 + num2
+def calculate(num1, num2, operation):
+    if operation == 1:
+        return num1 + num2
+    elif operation == 2:
+        return num1 - num2
+    elif operation == 3:
+        return num1 * num2
+    elif operation == 4:
+        return "Ошибка: деление на ноль" if num2 == 0 else num1 / num2
+    else:
+        return "Неверный выбор"
 
-def subtract(num1, num2):
-    return num1 - num2
-
-def multiply(num1, num2):
-    return num1 * num2
-
-def divide(num1, num2):
-    return num1 / num2
-
-print("""Выберите функцию -
-1. Плюс
-2. Минус
+print("""Выберите функцию:
+1. Сложение
+2. Вычитание
 3. Умножение
 4. Деление
 """)
-
-
-select = int(input("Выберите 1, 2, 3, 4 :"))
-number_1 = int(input("Первое число: "))
-number_2 = int(input("Второе число: "))
-
-if select == 1:
-    print(number_1, "+", number_2, "=",
-                    add(number_1, number_2))
-
-elif select == 2:
-    print(number_1, "-", number_2, "=",
-                    subtract(number_1, number_2))
-
-elif select == 3:
-    print(number_1, "*", number_2, "=",
-                    multiply(number_1, number_2))
-
-elif select == 4:
-    print(number_1, "/", number_2, "=",
-                    divide(number_1, number_2))
-else:
-    print("Ахтунг")
+op = int(input("Выберите 1, 2, 3 или 4: "))
+n1, n2 = float(input("Введите первое число: ")), float(input("Введите второе число: "))   
+result = calculate(n1, n2, op)
+print(f"Результат: {result}")
